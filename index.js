@@ -5,7 +5,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Replace with your actual Telegram bot token
-const bot = new Telegraf("7759021545:AAGaPvoURbXd6ddhFCFyioUcFfQ9teKuvlI");
+const bot = new Telegraf(process.env.BOT_TOKEN); // Use env variable
+
+// const bot = new Telegraf("7759021545:AAGaPvoURbXd6ddhFCFyioUcFfQ9teKuvlI");
 
 // Web server to keep Replit alive
 app.get("/", (req, res) => {
