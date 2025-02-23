@@ -1,0 +1,88 @@
+{
+    "Idli / Dosa / Rice Mix Podi": {
+      "products": {
+        "Andhra Paruppu Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A traditional Andhra-style paruppu podi made with roasted dal and spices.",
+          "benefits": "⭐ Rich in protein\n⭐ Enhances taste\n⭐ Boosts digestion",
+          "use": "🍽 Mix with hot rice and ghee, or use as a dry chutney."
+        },
+        "Kollu Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "Kollu Podi is a spicy lentil powder made from horse gram and spices.",
+          "benefits": "⭐ Helps in weight loss\n⭐ Improves metabolism\n⭐ Rich in iron",
+          "use": "🍽 Mix with rice and ghee, or sprinkle on dosa and idli."
+        },
+        "Vallarai Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "Vallarai Podi is a health mix made from Brahmi leaves.",
+          "benefits": "⭐ Improves memory\n⭐ Boosts brain function\n⭐ Supports immunity",
+          "use": "🍽 Mix with warm rice and enjoy as a nutritious meal."
+        },
+        "Murungai Keerai Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A nutritious mix made from Moringa leaves, rich in vitamins and minerals.",
+          "benefits": "⭐ Boosts immunity\n⭐ Detoxifies the body\n⭐ Improves digestion",
+          "use": "🍽 Mix with rice or sprinkle over dosa and idli."
+        },
+        "Karuveppilai Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A flavorful podi made from curry leaves, rich in iron and antioxidants.",
+          "benefits": "⭐ Supports hair health\n⭐ Aids digestion\n⭐ Improves gut health",
+          "use": "🍽 Best mixed with rice and a spoon of ghee."
+        },
+        "Pirandai Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A medicinal mix made from Pirandai (Adamant Creeper).",
+          "benefits": "⭐ Strengthens bones\n⭐ Reduces joint pain\n⭐ Improves digestion",
+          "use": "🍽 Mix with hot rice or consume with dosa."
+        },
+        "Mudakathan Keerai Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A traditional podi made from Mudakathan Keerai (Balloon Vine plant).",
+          "benefits": "⭐ Treats joint pain\n⭐ Reduces arthritis symptoms\n⭐ Detoxifies the body",
+          "use": "🍽 Mix with ghee and hot rice."
+        },
+        "Avaram Poo Podi": {
+          "price": "₹60 for 100g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A health mix made from Avaram Poo (Senna auriculata).",
+          "benefits": "⭐ Regulates blood sugar\n⭐ Detoxifies the body\n⭐ Improves skin health",
+          "use": "🍽 Mix with rice or consume with dosa."
+        }
+      }
+    },
+    "Soup Podi": {
+      "products": {
+        "Murungai Keerai Soup Podi": {
+          "price": "₹45 for 50g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A nutritious soup mix made from Moringa leaves.",
+          "benefits": "⭐ Rich in vitamins & minerals\n⭐ Boosts immunity\n⭐ Detoxifies the body",
+          "use": "🍽 Mix with hot water, stir well, and drink."
+        },
+        "Thoothuvalai Soup Podi": {
+          "price": "₹45 for 50g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A herbal soup powder made from Thoothuvalai leaves.",
+          "benefits": "⭐ Relieves cold & cough\n⭐ Supports respiratory health\n⭐ Rich in antioxidants",
+          "use": "🍽 Mix with warm water and consume as a herbal soup."
+        },
+        "Mudakathan Soup Podi": {
+          "price": "₹45 for 50g",
+          "bottle_packaging": "Additional ₹15",
+          "what": "A herbal soup mix made from Mudakathan Keerai (Balloon Vine plant).",
+          "benefits": "⭐ Reduces joint pain\n⭐ Aids digestion\n⭐ Detoxifies the body",
+          "use": "🍽 Mix with hot water, stir well, and drink."
+        }
+      }
+    }
+  }
+  
