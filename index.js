@@ -10,34 +10,9 @@ const app = express();
 
 // Load product data from JSON
 const productData = JSON.parse(fs.readFileSync('products.json', 'utf-8'));
-const userMessages = new Map();
-
-const trackUserActivity = (chatId, messageId) => {
-    if (!userMessages.has(chatId)) {
-        userMessages.set(chatId, []);
-    }
-    userMessages.get(chatId).push(messageId);
-    setTimeout(() => {
-        if (userMessages.has(chatId)) {
-            userMessages.get(chatId).forEach(msgId => {
-                bot.deleteMessage(chatId, msgId).catch(() => {});
-            });
-            userMessages.delete(chatId);
-            bot.sendMessage(chatId, "To run the bot click /start");
-        }
-    }, 60000);
-};
 
 const sendMessage = (chatId, text, options) => {
-    if (userMessages.has(chatId)) {
-        userMessages.get(chatId).forEach(msgId => {
-            bot.deleteMessage(chatId, msgId).catch(() => {});
-        });
-        userMessages.set(chatId, []);
-    }
-    bot.sendMessage(chatId, text, options).then(sentMessage => {
-        trackUserActivity(chatId, sentMessage.message_id);
-    });
+    bot.sendMessage(chatId, text, options);
 };
 
 const getMainMenu = () => {
