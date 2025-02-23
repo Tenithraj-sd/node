@@ -1,37 +1,33 @@
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
+const express = require('express');
 require('dotenv').config();
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
+const PORT = process.env.PORT || 3000;
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
+const app = express();
 
 // Load product data from JSON
 const productData = JSON.parse(fs.readFileSync('products.json', 'utf-8'));
-
-// Store message IDs for deletion
 const userMessages = new Map();
 
-// Function to track user activity and set a deletion timer
 const trackUserActivity = (chatId, messageId) => {
     if (!userMessages.has(chatId)) {
         userMessages.set(chatId, []);
     }
     userMessages.get(chatId).push(messageId);
-
     setTimeout(() => {
         if (userMessages.has(chatId)) {
             userMessages.get(chatId).forEach(msgId => {
                 bot.deleteMessage(chatId, msgId).catch(() => {});
             });
             userMessages.delete(chatId);
-
-            // Send the restart message
             bot.sendMessage(chatId, "To run the bot click /start");
         }
-    }, 60000); // 60 seconds timer
+    }, 60000);
 };
 
-// Function to send a message and delete the previous one
 const sendMessage = (chatId, text, options) => {
     if (userMessages.has(chatId)) {
         userMessages.get(chatId).forEach(msgId => {
@@ -39,13 +35,11 @@ const sendMessage = (chatId, text, options) => {
         });
         userMessages.set(chatId, []);
     }
-    
     bot.sendMessage(chatId, text, options).then(sentMessage => {
         trackUserActivity(chatId, sentMessage.message_id);
     });
 };
 
-// Function to generate main menu keyboard
 const getMainMenu = () => {
     const keyboard = Object.keys(productData).map(category => [
         { text: `🍛 ${category}`, callback_data: `category_${category}` }
@@ -54,7 +48,6 @@ const getMainMenu = () => {
     return { reply_markup: { inline_keyboard: keyboard } };
 };
 
-// Function to generate product list keyboard
 const getProductMenu = (category) => {
     const keyboard = Object.keys(productData[category].products).map(product => [
         { text: product, callback_data: `product_${category}_${product}` }
@@ -63,7 +56,6 @@ const getProductMenu = (category) => {
     return { reply_markup: { inline_keyboard: keyboard } };
 };
 
-// Function to generate product details keyboard
 const getProductDetailsMenu = (category, product) => {
     return {
         reply_markup: {
@@ -80,7 +72,6 @@ const getProductDetailsMenu = (category, product) => {
     };
 };
 
-// Start command
 bot.onText(/\/start/, (msg) => {
     sendMessage(msg.chat.id, '📌 *Welcome to Tenith Healthy Foods!* \n\nSelect a category:', {
         parse_mode: 'Markdown',
@@ -88,11 +79,9 @@ bot.onText(/\/start/, (msg) => {
     });
 });
 
-// Handle category selection
 bot.on('callback_query', (callbackQuery) => {
     const chatId = callbackQuery.message.chat.id;
     const data = callbackQuery.data;
-    
     if (data.startsWith('category_')) {
         const category = data.replace('category_', '');
         sendMessage(chatId, `📌 *${category}* \n\nSelect a product:`, {
@@ -135,6 +124,14 @@ bot.on('callback_query', (callbackQuery) => {
             ...getMainMenu()
         });
     }
+});
+
+app.get('/', (req, res) => {
+    res.send('Bot is running...');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 console.log('🤖 Bot is running...');
