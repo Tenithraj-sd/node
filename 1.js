@@ -11,16 +11,8 @@ const app = express();
 // Load product data from JSON
 const productData = JSON.parse(fs.readFileSync('products.json', 'utf-8'));
 
-// Store last message ID for each user
-const userMessages = new Map();
-
 const sendMessage = (chatId, text, options) => {
-    if (userMessages.has(chatId)) {
-        bot.deleteMessage(chatId, userMessages.get(chatId)).catch(() => {});
-    }
-    bot.sendMessage(chatId, text, options).then(sentMessage => {
-        userMessages.set(chatId, sentMessage.message_id);
-    });
+    bot.sendMessage(chatId, text, options);
 };
 
 const getMainMenu = () => {
